@@ -57,5 +57,46 @@ Perjalanan {
 // Clousures With MultiPle Parameters
 
 func travel (action :(String, Int)-> String) {
-    
+    print("I'm getting ready to go.")
+    let deskripsi = action("taiwan", 60)
+    print(deskripsi)
+    print("I'm arrived")
 }
+
+travel {
+    "I'm going to \($0) at \($1) miles perhour"
+}
+
+//Returning Clousures
+/*
+func pergi () -> (String) ->Void {
+    return {
+        print("I'am going to\($0)")
+    }
+}
+
+let result = pergi()
+result ("Harkit")
+
+let result2: Void = pergi()("Harkit")
+
+*/
+
+//Capturing Values
+
+func pergi () ->(String) ->Void{
+    var counter = 1
+    return {
+        print("I'm going to \($0)")
+        counter += 1
+    }
+}
+
+let result = pergi()
+result ("home")
+
+print("----------------------------")
+
+result ("home")
+result ("home")
+result ("home")
